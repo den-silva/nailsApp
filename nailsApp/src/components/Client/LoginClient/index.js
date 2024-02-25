@@ -1,14 +1,26 @@
 import React, { useState } from 'react';  
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';  
 import { Image } from 'react-native';  
-
+import { Alert } from 'react-native';  
 
 export default function LoginClient() {  
     const [username, setUsername] = useState("");  
     const [password, setPassword] = useState("");  
     
-    const handleLogin = () => {  
+    const handleLogin = () => {
+          
       // adicione aqui a lógica de login  
+      var usernameBanco = 'denilson@gmail.com'
+      var passwordBanco = '123456'
+        if(username != usernameBanco || password != passwordBanco){
+            Alert.alert(  
+                "Falha no Login",  
+                "Usuário ou senha incorretos",  
+                [  
+                    { text: "OK" }  
+                ],  
+            );
+        }
     };  
 
     return (  
@@ -23,7 +35,7 @@ export default function LoginClient() {
             style={styles.input}  
             placeholder="E-mail ou nome de usuário"  
             value={username}  
-            onChangeText={setUsername}  
+            onChangeText={setUsername}              
           />  
           <TextInput  
             style={styles.input}  
